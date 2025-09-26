@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import Combine
 
 struct LevelProgress: Identifiable {
     let id: UUID

@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import Combine
 
 final class TrainingSessionViewModel: ObservableObject {
     struct Feedback: Identifiable {
