@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var adventure = AdventureViewModel()
+    @State private var adventure = AdventureViewModel()
     @State private var path = NavigationPath()
 
     var body: some View {

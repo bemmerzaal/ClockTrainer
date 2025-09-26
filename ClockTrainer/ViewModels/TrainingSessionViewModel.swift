@@ -1,8 +1,9 @@
 import Foundation
 import SwiftUI
-import Combine
+import Observation
 
-final class TrainingSessionViewModel: ObservableObject {
+@Observable
+final class TrainingSessionViewModel {
     struct Feedback: Identifiable {
         let id = UUID()
         let title: String
@@ -10,15 +11,15 @@ final class TrainingSessionViewModel: ObservableObject {
         let isPositive: Bool
     }
 
-    @Published private(set) var questions: [ClockQuestion]
-    @Published private(set) var currentQuestionIndex: Int = 0
-    @Published private(set) var score: Int = 0
-    @Published private(set) var correctCount: Int = 0
-    @Published private(set) var streak: Int = 0
-    @Published private(set) var earnedBadges: [ClockBadge] = []
-    @Published private(set) var isCompleted: Bool = false
-    @Published var activeBadge: ClockBadge?
-    @Published var feedback: Feedback?
+    private(set) var questions: [ClockQuestion]
+    private(set) var currentQuestionIndex: Int = 0
+    private(set) var score: Int = 0
+    private(set) var correctCount: Int = 0
+    private(set) var streak: Int = 0
+    private(set) var earnedBadges: [ClockBadge] = []
+    private(set) var isCompleted: Bool = false
+    var activeBadge: ClockBadge?
+    var feedback: Feedback?
 
     let level: ClockLevel
 

@@ -5,7 +5,7 @@ struct TrainingSessionView: View {
     var onComplete: (TrainingSessionResult) -> Void
 
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel: TrainingSessionViewModel
+    @State private var viewModel: TrainingSessionViewModel
 
     @State private var selectedOptionID: UUID?
     @State private var analogHour: Int = 6
@@ -17,7 +17,7 @@ struct TrainingSessionView: View {
     init(level: ClockLevel, onComplete: @escaping (TrainingSessionResult) -> Void) {
         self.level = level
         self.onComplete = onComplete
-        _viewModel = StateObject(wrappedValue: TrainingSessionViewModel(level: level))
+        _viewModel = State(wrappedValue: TrainingSessionViewModel(level: level))
     }
 
     var body: some View {

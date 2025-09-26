@@ -1,6 +1,6 @@
 import Foundation
 import SwiftUI
-import Combine
+import Observation
 
 struct LevelProgress: Identifiable {
     let id: UUID
@@ -37,9 +37,10 @@ enum AdventureTheme {
     }
 }
 
-final class AdventureViewModel: ObservableObject {
-    @Published var profileName: String
-    @Published private(set) var progressMap: [UUID: LevelProgress]
+@Observable
+final class AdventureViewModel {
+    var profileName: String
+    private(set) var progressMap: [UUID: LevelProgress]
     let levels: [ClockLevel]
 
     init(levels: [ClockLevel] = ClockAdventure.levels) {
